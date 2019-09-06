@@ -1,0 +1,201 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://gate_closed.png" type="Texture" id=2]
+[ext_resource path="res://gate.vs" type="Script" id=3]
+[ext_resource path="res://peter.png" type="Texture" id=4]
+[ext_resource path="res://peter.gd" type="Script" id=5]
+[ext_resource path="res://bench.png" type="Texture" id=6]
+[ext_resource path="res://no_inactive.png" type="Texture" id=7]
+[ext_resource path="res://message.png" type="Texture" id=8]
+[ext_resource path="res://catholic.png" type="Texture" id=9]
+[ext_resource path="res://yes.png" type="Texture" id=10]
+[ext_resource path="res://no.png" type="Texture" id=11]
+[ext_resource path="res://select.png" type="Texture" id=12]
+[ext_resource path="res://spacebar.png" type="Texture" id=13]
+[ext_resource path="res://left.png" type="Texture" id=14]
+[ext_resource path="res://right.png" type="Texture" id=15]
+[ext_resource path="res://protestant.png" type="Texture" id=16]
+[ext_resource path="res://sunni.png" type="Texture" id=17]
+[ext_resource path="res://move.wav" type="AudioStream" id=18]
+[ext_resource path="res://yay.wav" type="AudioStream" id=19]
+[ext_resource path="res://aah.wav" type="AudioStream" id=20]
+[ext_resource path="res://select.wav" type="AudioStream" id=21]
+[ext_resource path="res://hell.wav" type="AudioStream" id=22]
+[ext_resource path="res://god.wav" type="AudioStream" id=23]
+[ext_resource path="res://spirit.wav" type="AudioStream" id=24]
+[ext_resource path="res://gate.wav" type="AudioStream" id=25]
+[ext_resource path="res://theme.wav" type="AudioStream" id=26]
+
+[node name="Game" type="Node2D"]
+scale = Vector2( 8, 8 )
+script = ExtResource( 1 )
+
+[node name="sky" type="ColorRect" parent="."]
+margin_right = 128.0
+margin_bottom = 75.0
+color = Color( 0.215686, 0.215686, 0.215686, 1 )
+
+[node name="ground" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 60.0
+margin_right = 128.0
+margin_bottom = 150.0
+
+[node name="gate" type="Sprite" parent="."]
+position = Vector2( 120, 44 )
+z_index = 3
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="peter" type="Sprite" parent="."]
+position = Vector2( 95, 52 )
+z_index = 1
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="bench" type="Sprite" parent="."]
+position = Vector2( 95, 52 )
+z_index = 1
+texture = ExtResource( 6 )
+
+[node name="no1" type="Sprite" parent="."]
+position = Vector2( 6, 69 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="no2" type="Sprite" parent="."]
+position = Vector2( 14, 69 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="no3" type="Sprite" parent="."]
+position = Vector2( 22, 69 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="god" type="NinePatchRect" parent="."]
+visible = false
+margin_left = 103.0
+margin_top = -2.0
+margin_right = 119.0
+margin_bottom = 22.0
+rect_rotation = -90.0
+rect_scale = Vector2( -1, 1 )
+texture = ExtResource( 8 )
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="religion" type="Sprite" parent="god"]
+visible = false
+position = Vector2( 8, 8 )
+rotation = 1.5708
+scale = Vector2( 0.5, -0.5 )
+texture = ExtResource( 9 )
+
+[node name="rule" type="Sprite" parent="god"]
+visible = false
+position = Vector2( 8, 16 )
+rotation = 1.5708
+scale = Vector2( 0.5, -0.5 )
+texture = ExtResource( 10 )
+
+[node name="choice" type="Node2D" parent="."]
+visible = false
+position = Vector2( 112, 69 )
+
+[node name="yes" type="Sprite" parent="choice"]
+position = Vector2( 10, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="no" type="Sprite" parent="choice"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+
+[node name="select" type="Sprite" parent="choice"]
+texture = ExtResource( 12 )
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( 0, 75 )
+anchor_mode = 0
+current = true
+
+[node name="spacebar" type="Sprite" parent="."]
+position = Vector2( 64, 135 )
+z_index = 3
+texture = ExtResource( 13 )
+
+[node name="mode" type="Node2D" parent="."]
+visible = false
+position = Vector2( 64, 112.5 )
+z_index = 3
+
+[node name="left" type="Sprite" parent="mode"]
+position = Vector2( -20, 0 )
+texture = ExtResource( 14 )
+
+[node name="right" type="Sprite" parent="mode"]
+position = Vector2( 20, 0 )
+texture = ExtResource( 15 )
+
+[node name="catholic" type="Sprite" parent="mode"]
+position = Vector2( -10, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="protestant" type="Sprite" parent="mode"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 16 )
+
+[node name="sunni" type="Sprite" parent="mode"]
+position = Vector2( 10, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 17 )
+
+[node name="yes" type="Sprite" parent="mode"]
+visible = false
+position = Vector2( -10, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="select" type="Sprite" parent="mode"]
+position = Vector2( -10, 0 )
+texture = ExtResource( 12 )
+
+[node name="audio_move" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -10.0
+
+[node name="audio_yay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="audio_aah" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="audio_select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -5.0
+
+[node name="audio_hell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -5.0
+
+[node name="audio_god" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+
+[node name="audio_human" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+
+[node name="audio_gate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = -10.0
+
+[node name="theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = -7.0
+autoplay = true
+

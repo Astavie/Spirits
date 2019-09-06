@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/spirit.wav-9082f722e575b2c09126dec35f648814.sample"
+
+[deps]
+
+source_file="res://spirit.wav"
+dest_files=[ "res://.import/spirit.wav-9082f722e575b2c09126dec35f648814.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
